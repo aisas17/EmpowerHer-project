@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - EmpowerHer</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7fa;
+            color: #4f4f4f;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .header {
+            font-size: 24px;
+            color: #d671d6;
+            font-weight: bold;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0c3d1;
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #C8A2C8;
+            margin-bottom: 20px;
+        }
+        .change-pic {
+            color: #dcc2dc;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        label {
+            font-size: 16px;
+            color: #6b6b6b;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6d6d6;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+        .btn {
+            background-color: #C8A2C8;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #c48ec4;
+        }
+        .footer {
+            font-size: 12px;
+            margin-top: 15px;
+            color: #a1a1a1;
+        }
+        .back-link {
+            font-size: 14px;
+            color: #4d79d1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Edit Your Profile</div>
+        <img src="../views/assets/imgaes/Jisoo_ BLP.jpg" alt="Profile Picture" class="profile-pic">
+        <p class="change-pic">Change Profile Picture</p>
+        
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="Jisoo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" value="Jisoo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="jisoo_loveblink@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="bio">Short Bio</label>
+                <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself...">Empowering women to succeed in business, tech, and personal growth.</textarea>
+            </div>
+            
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+        
+        <div class="footer">
+            <p>Need help? <a href="#">Contact Support</a></p>
+            <p><a href="profile.html" class="back-link">Back to Profile</a></p>
+        </div>
+    </div>
+</body>
+</html>

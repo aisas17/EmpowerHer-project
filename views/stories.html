@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer - Stories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FDF7F9;
+            color: #4A4A4A;
+        }
+
+       
+        /* Header Styling */
+        header {
+            background:linear-gradient(90deg, #f0a4dd, #C8A2C8); /* Light Purple */
+            color: #FFFFFF;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #AD2EB3; /* Light Purple on Hover */
+        }
+
+        /* Main Section Styling */
+        main {
+            background: linear-gradient(180deg, #FDF7F9, #F8E0E6);
+            padding: 60px 20px;
+            text-align: center;
+            min-height: 80vh;
+        }
+
+        main h2 {
+            font-size: 36px;
+            color: #6A4C59;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        main .stories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .story-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin: 15px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .story-card img {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .interaction-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .reply, .retweet, .like {
+      cursor: pointer;
+    }
+
+    .comment-box {
+      margin-top: 20px;
+    }
+
+    .comment-input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comment-input-container input {
+      width: 80%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .comment-input-container .post-icon {
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+        .story-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .story-card h3 {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .story-card p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        /* Like, Share, Comment Buttons */
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            border: 2px solid #AD2EB3;
+            color: #AD2EB3;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-action:hover {
+            background-color: #AD2EB3;
+            color: #fff;
+        }
+
+        .btn-action i {
+            margin-right: 5px;
+        }
+
+        /* Footer Styling */
+        .site-footer {
+            background: #C8A2C8;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .site-footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .social-media a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #5A2971;
+        }
+        .btn {
+            background-color: #AD2EB3; /* Light Purple */
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #5A2971; /* Slightly darker Light Purple */
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stories-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .story-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>EmpowerHer</h1>
+            <p>Inspire. Empower. Achieve.</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="homeLink">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="opportunity.html">Opportunities</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="signup.html">Join</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <h2>Empowering Stories</h2>
+        <button class="btn" onclick="location.href='update.html'"> create a post</button>
+                <div class="stats">
+        <div class="stories-container">
+            <!-- Story 1 -->
+  <div class="story-card">
+    <img src="../views/assets/imgaes/Tips for Preventing and Treating Barometric Migraines.jpg" alt="Story Image 1">
+    <h3>Prevention Of Sexual Violence In Education Settings</h3>
+    <p>It covers forced, non-consensual or exploitative sexual acts perpetrated in, around or related to an education setting. While sexual violence against children and young people is already a less-researched area of work, this focus on education settings is even less common. Yet, by all accounts, its prevalence is high and not being addressed fast enough.</p>
+    <div class="interaction-icons">
+      <!-- Like button -->
+      <div class="like" onclick="handleLike()">
+        <i class="fa-regular fa-heart"></i> <span id="num-like">0</span>
+      </div>
+      
+      <!-- Retweet button -->
+      <div class="retweet" onclick="handleRetweet()">
+        <span id="retweet-icon">🔁</span> <span id="num-retweet">0</span>
+      </div>
+      
+      <!-- Comment button -->
+      <div class="reply">
+        <i class="fa-regular fa-comments"></i> <span id="comment-count">0</span>
+      </div>
+    </div>
+
+    <div class="comment-box">
+      <div>Comment:</div>
+      <div class="comment-input-container">
+        <input type="text" id="comment-input" placeholder="Enter your comment">
+        <i class="fa-solid fa-paper-plane" onclick="handlePostComment()"></i>
+      </div>
+    </div>
+  </div>
+
+            <!-- Story 2 -->
+            <div class="story-card">
+                <img src="https://karnavatiuniversity.edu.in/wp-content/uploads/2024/05/Differences-Between-BBA-BBA-in-Global-Business.jpg" alt="Story Image 2">
+                <h3>From Small Business to Global Brand</h3>
+                <p>Discover how Sarah Lee transformed her small local boutique into a globally recognized fashion brand.</p>
+                <div class="interaction-icons">
+                    <!-- Like button -->
+                    <div class="like" onclick="handleLike()">
+                      <i class="fa-regular fa-heart"></i> <span id="num-like">0</span>
+                    </div>
+                    
+                    <!-- Retweet button -->
+                    <div class="retweet" onclick="handleRetweet()">
+                      <span id="retweet-icon">🔁</span> <span id="num-retweet">0</span>
+                    </div>
+                    
+                    <!-- Comment button -->
+                    <div class="reply">
+                      <i class="fa-regular fa-comments"></i> <span id="comment-count">0</span>
+                    </div>
+                  </div>
+              
+                  <div class="comment-box">
+                    <div>Comment:</div>
+                    <div class="comment-input-container">
+                      <input type="text" id="comment-input" placeholder="Enter your comment">
+                      <i class="fa-solid fa-paper-plane" onclick="handlePostComment()"></i>
+                    </div>
+                  </div>
+                </div>
+
+            <!-- Story 3 -->
+            <div class="story-card">
+                <img src="https://stringproduction.com/wp-content/uploads/2024/09/Breaking-Barriers-.png" alt="Story Image 3">
+                <h3>Breaking Barriers in Education</h3>
+                <p>Maria Fernandez discusses her experiences as the first woman to earn a degree in engineering in her family.</p>
+                <div class="interaction-icons">
+                    <!-- Like button -->
+                    <div class="like" onclick="handleLike()">
+                      <i class="fa-regular fa-heart"></i> <span id="num-like">0</span>
+                    </div>
+                    
+                    <!-- Retweet button -->
+                    <div class="retweet" onclick="handleRetweet()">
+                      <span id="retweet-icon">🔁</span> <span id="num-retweet">0</span>
+                    </div>
+                    
+                    <!-- Comment button -->
+                    <div class="reply">
+                      <i class="fa-regular fa-comments"></i> <span id="comment-count">0</span>
+                    </div>
+                  </div>
+              
+                  <div class="comment-box">
+                    <div>Comment:</div>
+                    <div class="comment-input-container">
+                      <input type="text" id="comment-input" placeholder="Enter your comment">
+                      <i class="fa-solid fa-paper-plane" onclick="handlePostComment()"></i>
+                    </div>
+                  </div>
+                </div>
+
+            <!-- Story 4 -->
+            <div class="story-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/63979d6844b2fd1537fa4c65/96d3c62b-65e3-4d3f-aebe-4b15fa6fe96d/mission-edge-csr-team-at-event-supporting-nonprofit-funding.jpg?format=1500w" alt="Story Image 4">
+                <h3>Building a Non-Profit for Change</h3>
+                <p>Read about Emily Davis' journey from starting a small community project to running a successful non-profit organization that empowers women.</p>
+                <div class="interaction-icons">
+                    <!-- Like button -->
+                    <div class="like" onclick="handleLike()">
+                      <i class="fa-regular fa-heart"></i> <span id="num-like">0</span>
+                    </div>
+                    
+                    <!-- Retweet button -->
+                    <div class="retweet" onclick="handleRetweet()">
+                      <span id="retweet-icon">🔁</span> <span id="num-retweet">0</span>
+                    </div>
+                    
+                    <!-- Comment button -->
+                    <div class="reply">
+                      <i class="fa-regular fa-comments"></i> <span id="comment-count">0</span>
+                    </div>
+                  </div>
+              
+                  <div class="comment-box">
+                    <div>Comment:</div>
+                    <div class="comment-input-container">
+                      <input type="text" id="comment-input" placeholder="Enter your comment">
+                      <i class="fa-solid fa-paper-plane" onclick="handlePostComment()"></i>
+                    </div>
+                  </div>
+                </div>
+
+            <!-- Story 5 -->
+            <div class="story-card">
+                <img src="https://powerassemblies.com/media/2023/07/Social-Media-Banner-2048x1365.jpg" alt="Story Image 5">
+                <h3>The Power of Social Media</h3>
+                <p>Olivia Williams talks about how she used social media to build a global community and promote positive change for women.</p>
+                <div class="interaction-icons">
+                    <!-- Like button -->
+                    <div class="like" onclick="handleLike()">
+                      <i class="fa-regular fa-heart"></i> <span id="num-like">0</span>
+                    </div>
+                    
+                    <!-- Retweet button -->
+                    <div class="retweet" onclick="handleRetweet()">
+                      <span id="retweet-icon">🔁</span> <span id="num-retweet">0</span>
+                    </div>
+                    
+                    <!-- Comment button -->
+                    <div class="reply">
+                      <i class="fa-regular fa-comments"></i> <span id="comment-count">0</span>
+                    </div>
+                  </div>
+              
+                  <div class="comment-box">
+                    <div>Comment:</div>
+                    <div class="comment-input-container">
+                      <input type="text" id="comment-input" placeholder="Enter your comment">
+                      <i class="fa-solid fa-paper-plane" onclick="handlePostComment()"></i>
+                    </div>
+                  </div>
+                </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <p>&copy; 2025 EmpowerHer. All rights reserved.</p>
+    </div>
+  </div>
+    </footer>
+
+</body>
+<script>
+    let likes = 0;
+    let retweets = 0;
+    let comments = 0;
+
+    // Handle Like
+    function handleLike() {
+      likes += 1;
+      document.getElementById("num-like").textContent = likes;
+    }
+
+    // Handle Retweet
+    function handleRetweet() {
+      retweets += 1;
+      document.getElementById("num-retweet").textContent = retweets;
+    }
+
+    // Handle Comment Post
+    function handlePostComment() {
+      const commentText = document.getElementById("comment-input").value;
+      if (commentText) {
+        comments += 1;
+        document.getElementById("comment-count").textContent = comments;
+        document.getElementById("comment-input").value = ""; // Clear the input after posting
+      }
+    }
+  </script>
+</html>

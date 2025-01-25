@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post your stories</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F3E6F5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+         /* Updated Navigation Buttons */
+    .nav-buttons {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        gap: 12px;
+    }
+
+    .nav-buttons a {
+        text-decoration: none;
+    }
+
+    .nav-buttons button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #AD2EB3, #7A1E81);
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-buttons button:hover {
+        background: linear-gradient(135deg, #7A1E81, #AD2EB3);
+        transform: scale(1.05);
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-buttons button i {
+        font-size: 16px;
+    }
+
+        .nav-buttons button:hover {
+            background-color: #7A1E81;
+            transform: scale(1.05);
+        }
+
+        .container {
+            background: linear-gradient(145deg, #FFFFFF, #F2EFF1);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.7);
+            width: 100%;
+            max-width: 600px;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            text-align: center;
+            color: #AD2EB3;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #5A2971;
+            margin-bottom: 8px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"],
+        textarea,
+        select,
+        input[type="file"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #E0D7E3;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #FAF8FB;
+            transition: box-shadow 0.3s, border 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border: 1px solid #AD2EB3;
+            box-shadow: 0 0 8px rgba(173, 46, 179, 0.3);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #AD2EB3;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #7A1E81;
+            transform: scale(1.03);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .file-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="file"] {
+            border: none;
+            padding: 5px 0;
+            color: #5A2971;
+        }
+
+        .description {
+            font-size: 12px;
+            color: #7A6F87;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Buttons at the Top-Left -->
+    <div class="nav-buttons">
+        <a href="index.html"><button>Home</button></a>
+        <a href="stories.html"><button>View post</button></a>
+    </div>
+
+    <div class="container">
+        <h1>Post Your Stories</h1>
+
+        <form action="/submit-quotes" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="quotesTitle">Story Title:</label>
+                <input type="text" id="quotesTitle" name="questionTitle" placeholder="Enter a catchy title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quotesDescription">Description:</label>
+                <textarea id="quotesDescription" name="quotesDescription" rows="4" placeholder="Write something inspirational..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="general">General</option>
+                    <option value="love">Love</option>
+                    <option value="sport">Sport</option>
+                    <option value="supporting">Supporting</option>
+                    <option value="education">Education</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="uploadPhoto">Upload Photo:</label>
+                <div class="file-input-container">
+                    <input type="file" id="uploadPhoto" name="photo" accept="image/*">
+                </div>
+                <p class="description">Accepted formats: JPEG, PNG. Max size: 5MB.</p>
+            </div>
+
+            <button type="submit">Post Story</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #8B8EC5; /* Soft Baby Blue */
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Header Section */
+header {
+    background: #0d000d; 
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .logo h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff; /* White for the logo */
+}
+
+header .logo p {
+    font-size: 16px;
+    color: #fff; /* Baby Blue for the tagline */
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #fff; 
+}
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #D0A6D1; /* Light Purple for heading */
+}
+
+.intro p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.intro .btn-primary {
+    padding: 12px 25px;
+    background: #D0A6D1; /* Light Purple */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    font-size: 16px;
+}
+
+.intro .btn-primary:hover {
+    background: #AD2EB3; /* Baby Blue on hover */
+}
+
+/* Questions Section */
+.questions, .stories {
+    margin-bottom: 40px;
+}
+
+.questions h2, .stories h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #D0A6D1; /* Light Purple for section titles */
+}
+
+.question, .story {
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.question h3, .story h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #D0A6D1; /* Light Purple for question and story titles */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #fff; /* Light Purple */
+    color: #AD2EB3;
+}
+
+footer .social-media a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+footer .social-media a:hover {
+    color: #AD2EB3; /* Baby Blue hover effect for social links */
+}
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #AD2EB3; /* Light Purple */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/*nav ul li a:hover {
+    text-decoration: underline;
+} */
+
+main {
+    background-color: #fff; 
+    padding: 40px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 32px;
+    color: #4A4A4A;
+}
+
+main p {
+    font-size: 18px;
+    color: #616161;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #fff; /* Light Purple */
+    color: #AD2EB3;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.btn-primary {
+    background-color: #fff; /* Light Purple */
+    color: #AD2EB3;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #8B8EC5; /* Darker Purple */
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 600px) {
+    main h2 {
+        font-size: 28px;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+        
+    }
+
+}
+

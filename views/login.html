@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer - Login</title>
+    <style>
+        body {
+            background-color: #F3E6F5; /* Soft pastel background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background: linear-gradient(145deg, #FFFFFF, #F2EFF1); /* Subtle gradient */
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s;
+        }
+
+        .login-box:hover {
+            transform: scale(1.02);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 100px; /* Logo size */
+            border-radius: 50%;
+            border: 3px solid #AD2EB3; /* Highlight border */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #5A2971;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #E0D7E3;
+            border-radius: 8px;
+            background-color: #FAF8FB;
+            transition: box-shadow 0.3s, border 0.3s;
+        }
+
+        input:focus {
+            border: 1px solid #AD2EB3; /* Purple focus */
+            box-shadow: 0 0 8px rgba(173, 46, 179, 0.3);
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: #AD2EB3; /* Purple button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #7A1E81; /* Darker purple */
+            transform: scale(1.03);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            color: #AD2EB3; /* Purple links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #636fed; /* Baby blue hover */
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <!-- Replace 'images/logo.png' with the actual path to your logo -->
+                <img src="../views/assets/imgaes/EmpowerHer Logo.jpg" alt="Website Logo">
+            </div>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Log In</button>
+            </form>
+            <div class="footer">
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                <p><a href="/forgot-password">Forgot your password?</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

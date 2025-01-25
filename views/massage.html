@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone - Messages</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 1000px;
+            height: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #5f5f5f;
+        }
+
+        .contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .contact:hover {
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .contact img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .contact .name {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background-color: #d747e4;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .chat-header button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .chat-box {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px;
+            border-radius: 15px;
+            position: relative;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .sent {
+            background-color: #6A4C9C;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .received {
+            background-color: #f0e6ff;
+            color: #444;
+            align-self: flex-start;
+        }
+
+        .timestamp {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .typing-indicator {
+            font-size: 12px;
+            color: gray;
+            padding: 5px;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chat-input button {
+            background-color: #6A4C9C;
+            border: none;
+            padding: 8px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .heart-picker {
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .dark-mode {
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        .dark-mode .sidebar {
+            background-color: #333;
+            color: white;
+        }
+
+        .dark-mode .chat-header {
+            background-color: #444;
+        }
+
+        .dark-mode .chat-box {
+            background-color: #2c2c2c;
+        }
+
+        .dark-mode .message {
+            background-color: #444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Chats</h2>
+            <div class="contact" onclick="openChat('chat1')">
+                <img src="../views/assets/imgaes/JennieRubyJane in Japan.jpg" alt="Contact 1">
+                <div class="name">Jennie RubyJane</div>
+            </div>
+            <div class="contact" onclick="openChat('chat2')">
+                <img src="../views/assets/imgaes/download (2).jpg" alt="Contact 2">
+                <div class="name">Roses_are_roise</div>
+            </div>
+            <div class="contact" onclick="openChat('chat3')">
+                <img src=".//assets/imgaes/download (3).jpg" alt="Contact 3">
+                <div class="name">Lalisa</div>
+            </div>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                Messages
+                <div>
+                    <button onclick="toggleDarkMode()">🌙</button>
+                    <button onclick="goToProfile()">❌</button>
+                </div>
+            </div>
+            <div class="chat-box" id="chat-box">
+                <div class="message received">Hello! How are you?<div class="timestamp">10:05 AM</div></div>
+                <div class="message sent">I'm doing great! How about you?<div class="timestamp">10:06 AM</div></div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">Typing...</div>
+            <div class="chat-input">
+                <span class="heart-picker" onclick="addHeart()">❤️</span>
+                <input type="text" id="messageInput" placeholder="Type a message..." onkeyup="checkTyping(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isDarkMode = false;
+
+        // Chat Data for different contacts
+        let chatData = {
+            chat1: [
+                { message: "Hey, how's it going?", sender: "received", time: "10:05 AM" },
+                { message: "I'm good! How about you?", sender: "sent", time: "10:06 AM" }
+            ],
+            chat2: [
+                { message: "Hello, long time no see!", sender: "received", time: "09:30 AM" },
+                { message: "Yeah! How have you been?", sender: "sent", time: "09:35 AM" }
+            ],
+            chat3: [
+                { message: "Hi there!", sender: "received", time: "08:50 AM" },
+                { message: "Hey! What's up?", sender: "sent", time: "08:55 AM" }
+            ]
+        };
+
+        // Open specific chat
+        function openChat(chatId) {
+            const chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML = ''; // Clear the current chat
+
+            // Loop through chat messages and display
+            chatData[chatId].forEach(chat => {
+                let newMessage = document.createElement("div");
+                newMessage.classList.add("message", chat.sender);
+                newMessage.innerHTML = chat.message + '<div class="timestamp">' + chat.time + '</div>';
+                newMessage.ondblclick = function() { deleteMessage(newMessage); };
+                chatBox.appendChild(newMessage);
+            });
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom to view the latest message
+        }
+
+        // Send a new message
+        function sendMessage() {
+            let input = document.getElementById("messageInput");
+            let messageText = input.value.trim();
+            if (messageText !== "") {
+                let chatBox = document.getElementById("chat-box");
+                let newMessage = document.createElement("div");
+                newMessage.classList.add("message", "sent");
+                newMessage.innerHTML = messageText + '<div class="timestamp">' + getTime() + '</div>';
+                newMessage.ondblclick = function() { deleteMessage(newMessage); };
+                chatBox.appendChild(newMessage);
+                input.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+                showAutoReply();
+            }
+        }
+
+        // Show auto-reply message
+        function showAutoReply() {
+            setTimeout(() => {
+                let chatBox = document.getElementById("chat-box");
+                let reply = document.createElement("div");
+                reply.classList.add("message", "received");
+                reply.innerHTML = "That's cool! 😊" + '<div class="timestamp">' + getTime() + '</div>';
+                reply.ondblclick = function() { deleteMessage(reply); };
+                chatBox.appendChild(reply);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+
+        // Get current time
+        function getTime() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            return hours + ":" + minutes + " " + ampm;
+        }
+
+        // Detect typing
+        function checkTyping(event) {
+            let indicator = document.getElementById("typingIndicator");
+            if (event.target.value.length > 0) {
+                indicator.style.display = "block";
+                setTimeout(() => { indicator.style.display = "none"; }, 1500);
+            }
+        }
+
+        // Add heart emoji to input
+        function addHeart() {
+            let input = document.getElementById("messageInput");
+            input.value += "❤️";
+            input.focus();
+        }
+
+        // Delete message when double-clicked
+        function deleteMessage(element) {
+            element.remove();
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            let body = document.body;
+            let chatContainer = document.querySelector(".chat-container");
+            if (!isDarkMode) {
+                body.classList.add("dark-mode");
+                chatContainer.style.backgroundColor = "#444";
+            } else {
+                body.classList.remove("dark-mode");
+                chatContainer.style.backgroundColor = "white";
+            }
+            isDarkMode = !isDarkMode;
+        }
+
+        // Go to profile page
+        function goToProfile() {
+            window.location.href = "profile.html";
+        }
+
+        // Send message when pressing "Enter"
+        document.getElementById("messageInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

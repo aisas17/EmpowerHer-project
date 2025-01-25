@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer - Home</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/font_styles.css">
+    <link rel="stylesheet" href="assets/styles/home-page.css">
+    <style>
+       /* General Body Styling */
+       body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FDF7F9; /* Updated body background */
+            color: #4A4A4A;
+        }
+
+
+        /* Header Styling */
+        header {
+            background:linear-gradient(90deg, #f0a4dd, #C8A2C8); /* Light Purple */
+            color: #FFFFFF;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #AD2EB3; /* Light Purple on Hover */
+        }
+
+        /* Main Section Styling */
+        main {
+            background: linear-gradient(180deg,#FDF7F9, #E9D7E4); /* Updated gradient */
+            padding: 60px 20px;
+            text-align: center;
+            min-height: 80vh;
+        }
+
+        main h2 {
+            font-size: 36px;
+            color: #6A4C59; /* Excellent contrast */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 18px;
+            color: #857175; /* Updated lighter tone */
+            margin-top: 10px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background-color: #FF6B88; /* Updated vibrant pink */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF8DA3; /* Updated lighter pink */
+            transform: scale(1.05);
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #C8A2C8; /* Updated gradient */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: #FFDCE5; /* Updated lighter accent */
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>EmpowerHer</h1>
+            <p>Inspire. Empower. Achieve.</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="homeLink">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="opportunity.html">Opportunities</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="signup.html">Join</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+  <!-- Main Content Section -->
+  <main>
+    <h2>Available Opportunities</h2>
+    <p>Explore various opportunities such as scholarships, mentorships, and internships that help women in achieving their goals.</p>
+    <ul class="opportunities">
+        <li><a href="https://www.nucamp.co/blog/coding-bootcamp-cambodia-khm-top-10-tech-internships-offered-in-cambodia">Tech Internship Program</a></li>
+        <li><a href="https://mentorcruise.com/filter/entrepreneurship/">Mentorship for Entrepreneurs</a></li>
+        <li><a href="https://www.coursera.org/courses?query=leadership">Leadership Training Course</a></li>
+    </ul>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 EmpowerHer | All rights reserved</p>
+    <div class="social-media">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </div>
+  </footer>
+</body>
+</html>
